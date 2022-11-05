@@ -7,17 +7,12 @@ base_dir = os.path.dirname(os.path.realpath(__file__))
 
 app = Flask(__name__)   
 
-# db = SQLAlchemy(app)
-# db.init_app(app)
-
 app.config['SECRET_KEY'] = 'secret key'
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + os.path.join(base_dir, 'db.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-db.init_app(app)
-
-
+# db.init_app(app)
 
 
 class User(db.Model, UserMixin):
@@ -33,9 +28,9 @@ class User(db.Model, UserMixin):
 
 
 
-@app.route('/')
+@app.route("/")
 def home():
-    return render_template('home.html')
+    return render_template("home.html")
 
 
 @app.route('/signup')
@@ -49,6 +44,14 @@ def login():
 @app.route('/profile')
 def profile():
     return render_template('about.html')
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('500.html'), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
