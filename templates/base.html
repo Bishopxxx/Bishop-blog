@@ -9,7 +9,7 @@
     <script src="{{url_for('static', filename ='script.js')}}"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Bishop Blog</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +18,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
@@ -44,25 +44,26 @@
     <div class="container">
       
       {% with messages = get_flashed_messages(with_categories=true ) %}
-      {% if messages %}
-        {% for category, message in messages %}
-          <div class="alert alert-{{ category }}">
-            {{ message }}
-          </div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
       {% block content %}
+
       {% endblock %}
       
-      <footer>
-        <p>Built by <span style="color: blue;"><h4>Bishop</h4></span></p>
-        <p><a href="mailto:vjchris343@gmail.com">Bishop</a></p>
-  
-      </footer>
       
     </div>
 
+    <footer style="padding-top: 100px; text-align:center;">
+      <p>Built by <span style="color: blue;"><h4>Bishop</h4></span></p>
+      <p><a href="mailto:vjchris343@gmail.com">Bishop</a></p>
+    </footer>
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

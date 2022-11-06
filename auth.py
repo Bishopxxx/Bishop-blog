@@ -70,3 +70,14 @@ def sign_up():
 def logout():
     logout_user()
     return redirect(url_for("views.home"))
+
+
+
+
+    try:
+        db.session.delete(post)
+        db.session.commit()
+        return redirect(url_for("home"))
+    except:
+        flash ("There was a problem deleting that post.", category="error")
+

@@ -1,8 +1,7 @@
 {% extends "base.html" %}
-
-{% block title %} Bishop Blog: The car blog for car lovers by a car lover {% endblock %}
-
-
+{% block title %} 
+Bishop Blog: The car blog for car lovers by a car lover
+{% endblock %}
 {% block content %}
 
   <br><br>
@@ -12,21 +11,23 @@
       <div class="card-header">
        <h3> Featured Article of the Month</h3>
       </div>
-
+      {% for post in posts %}
       <div class="card-body">
-        <h5 class="card-title">Merger deals and how they affect the automobile industry</h5>
-        <p class="card-text">Ducati, Bugatti, Skoda, Rimac and much more companies are subsidiaries of The Volkswagen Group</p>
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.content }}</p>
         <a href="#" class="btn btn-primary">Read more</a>
       </div>
       <div class="card-footer text-muted">
-        2 days ago
+        {{ post.date_created.strftime('%B %d, %Y') }}
       </div>
+      {% endfor %}
     </div>
+{% endblock %}
 
 <br>
 <hr>
 
-<div class="row"> 
+<!-- <div class="row"> 
     <div class="column">
   <div class="card" style="width: 18rem;">
     <img src="/static/img/ferrari-testarossa.jpg" class="card-img-top" alt=" ferrari-testarossa">
@@ -190,6 +191,4 @@
       <a href="#" class="btn btn-primary">Read more</a>
     </div>
   </div>
-</div>
-
-{% endblock %}
+</div> -->
