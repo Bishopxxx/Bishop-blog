@@ -1,32 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Animated Background Login Screen</title>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'><link rel="stylesheet" href="/static/main.css">
-  <script src="{{url_for('static', filename ='script.js')}}"></script>
-
-</head>
-<body>
-
-<div class="container">
-	<div id="login-box">
-		<div class="logo">
-			<img src="/static/img/logo/logo.png" class="img img-responsive img-circle center-block"/>
-			<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
+{% extends "base.html" %}
+{% block title %} Login {% endblock %}
+{% block content %}
+<div class="login">
+	<form method="post">
+		<div class="form-group">
+			<label for="email">Email</label>
+			<input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
 		</div>
-		<div class="controls">
-			<input type="text" name="username" placeholder="Username" class="form-control" />
-			<input type="email" name="email" placeholder="Email"  class="form-control"/>
-			<input type="text" name="username" placeholder="Password" class="form-control" />
-			<button type="button" class="btn btn-default btn-block btn-custom">Login</button>
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input type="password" class="form-control" name="password" id="password" placeholder="Password">
 		</div>
-	</div>
+		<button type="submit" class="btn btn-primary">Login</button>
+	</form>
 </div>
-<div id="particles-js"></div>
-<!-- partial -->
-  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'></script>
-<script src='https://code.jquery.com/jquery-1.11.1.min.js'></script><script  src="./script.js"></script>
-
-</body>
-</html>
+{% endblock %}
