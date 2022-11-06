@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 import os
@@ -28,10 +28,9 @@ class User(db.Model, UserMixin):
 
 
 
-@app.route("/")
+@app.route('/')
 def home():
     return render_template("home.html")
-
 
 @app.route('/signup')
 def register():
@@ -44,6 +43,24 @@ def login():
 @app.route('/profile')
 def profile():
     return render_template('about.html')
+
+@app.route('/logout')
+def logout():
+    return render_template('home.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/termsandprivacy')
+def termsandprivacy():
+    return render_template('terms.html')
+
 
 @app.errorhandler(404)
 def page_not_found(e):
