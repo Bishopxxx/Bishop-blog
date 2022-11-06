@@ -3,7 +3,6 @@
 Bishop Blog: The car blog for car lovers by a car lover
 {% endblock %}
 {% block content %}
-
   <br><br>
   <h1 style="color:white;">Bishop Blog</h1>
     <p>Here are all the posts</p>
@@ -15,12 +14,15 @@ Bishop Blog: The car blog for car lovers by a car lover
       <div class="card-body">
         <h5 class="card-title">{{ post.title }}</h5>
         <p class="card-text">{{ post.content }}</p>
-        <a href="#" class="btn btn-primary">Read more</a>
+        <a href="{{url_for('single_post', id=post.id)}}" class="btn btn-primary">Read more</a>
       </div>
       <div class="card-footer text-muted">
+        {{ post.user_name}}
         {{ post.date_created.strftime('%B %d, %Y') }}
       </div>
       {% endfor %}
+
+      
     </div>
 {% endblock %}
 

@@ -51,6 +51,11 @@ def home():
     posts = Create.query.order_by(Create.date_created.desc()).all()
     return render_template("home.html", posts=posts)
 
+@app.route("/post/<int:id>")
+def single_post(id):
+    posts = Create.query.get_or_404(id)
+    return render_template ("post.html", posts=posts, user=current_user)
+
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -151,8 +156,6 @@ def delete(id):
 @app.route('/profile')
 def profile():
     return render_template('about.html')
-
-
 
 @app.route('/about')
 def about():

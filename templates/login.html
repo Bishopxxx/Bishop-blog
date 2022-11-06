@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %} Login {% endblock %}
 {% block content %}
-<div class="login">
+<!-- <div class="login">
 	<form method="post">
 		<div class="form-group">
 			<label for="email">Email</label>
@@ -13,5 +13,27 @@
 		</div>
 		<button type="submit" class="btn btn-primary">Login</button>
 	</form>
+</div> -->
+<form method="post">
+<div class="container">
+	<div id="login-box">
+		<div class="logo">
+			<img src="/static/img/logo/logo.png" class="img img-responsive img-circle center-block"/>
+			<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
+		</div><!-- /.logo -->
+		<div class="controls">
+			
+			<input type="email" name="email" placeholder="Email"  class="form-control"/>
+			<input type="text" name="username" placeholder="Password" id="password"class="form-control" />
+			<button type="submit" class="btn btn-primary btn-default btn-block btn-custom">Login</button>
+		</div>
+	</div>
 </div>
+</form>
+<div id="particles-js"></div>
+
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'></script>
+<script src='https://code.jquery.com/jquery-1.11.1.min.js'></script><script  src="./script.js"></script>
+
+</body>
 {% endblock %}
